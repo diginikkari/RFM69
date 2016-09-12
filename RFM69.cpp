@@ -359,6 +359,8 @@ void RFM69::isr0() { _inISR = true; selfPointer->interruptHandler(); _inISR = fa
 
 // internal function
 void RFM69::receiveBegin() {
+  // As sugested in https://lowpowerlab.com/forum/moteino/communication-only-works-one-way-regardless-of-device/msg13193/#msg13193
+  setMode(RF69_MODE_SLEEP);
   DATALEN = 0;
   SENDERID = 0;
   TARGETID = 0;
@@ -525,7 +527,7 @@ void RFM69::readAllRegs()
 #endif
   
   Serial.println("Address - HEX - BIN");
-  for (uint8_t regAddr = 1; regAddr <= 0x4F; regAddr++)
+  for (uint8_t regAddr = 1; regAddr <= 0x71; regAddr++)
   {
     select();
     SPI.transfer(regAddr & 0x7F); // send address + r/w bit
