@@ -115,6 +115,7 @@
 #define REG_TESTPA1       0x5A  // only present on RFM69HW/SX1231H
 #define REG_TESTPA2       0x5C  // only present on RFM69HW/SX1231H
 #define REG_TESTDAGC      0x6F
+#define REG_TESTAFC       0x71
 
 //******************************************************
 // RF69/SX1231 bit control definition
@@ -204,6 +205,8 @@
 
 
 // RegFdev - frequency deviation (Hz)
+#define RF_FDEVMSB_1000             0x00
+#define RF_FDEVLSB_1000             0x12
 #define RF_FDEVMSB_2000             0x00
 #define RF_FDEVLSB_2000             0x21
 #define RF_FDEVMSB_5000             0x00  // Default
